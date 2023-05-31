@@ -2,10 +2,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% for birthday in birthdays %}
-    <!-- Добавим класс row: каждая запись — это строка -->
+  {% for birthday in page_obj %}
     <div class="row">
-      <!-- Первая "колонка" в строке, её ширина — 2/12 -->
+
       <div class="col-2">  
         {% if birthday.image %}
           <!-- У объекта картинки image есть атрибт url — его и укажем в src -->
@@ -28,4 +27,7 @@
       {% endif %}
     </div>
   {% endfor %}
+
+  {% include "includes/paginator.html" %}
+
 {% endblock %}
